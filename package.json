@@ -23,6 +23,7 @@
         "webpack-cli": "^4.10.0"
     },
     "dependencies": {
+        "dotenv": "^16.0.1",
         "@nut-tree/nut-js": "^2.3.0",
         "jimp": "^0.16.2",
         "ws": "^8.8.0"
