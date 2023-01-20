@@ -5,3 +5,9 @@ export const enum MOUSE {
   RIGHT = 'mouse_right',
   POSITION = 'mouse_position',
 }
+
+export const enum DRAW {
+    SQUARE = 'draw_square',
+    RECTANGLE = 'draw_rectangle',
+    CIRCLE = 'draw_circle',
+  }
