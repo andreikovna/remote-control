@@ -10,6 +10,6 @@ export const makeSnapshot = async (mousePosition: MousePosition) => {
     if (err) throw err;
     return image;
   });
-  const parseImage = (await imageJimp.getBase64Async(Jimp.MIME_PNG)).split(',')[1];
-  return parseImage;
+  
+  return (await imageJimp.getBufferAsync(Jimp.MIME_PNG)).toString('base64');
 };
