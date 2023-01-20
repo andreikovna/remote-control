@@ -7,7 +7,9 @@ export const enum MOUSE {
 }
 
 export const enum DRAW {
-    SQUARE = 'draw_square',
-    RECTANGLE = 'draw_rectangle',
-    CIRCLE = 'draw_circle',
-  }
+  SQUARE = 'draw_square',
+  RECTANGLE = 'draw_rectangle',
+  CIRCLE = 'draw_circle',
+}
+
+export const PRNT_SCRN = 'prnt_scrn';

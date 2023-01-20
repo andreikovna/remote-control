@@ -1,7 +1,8 @@
-import { down, left, mouse, right, up, straightTo, Point, Button } from '@nut-tree/nut-js';
+import { makeSnapshot } from './utils/makeSnapshot';
+import { down, left, mouse, right, up, Button } from '@nut-tree/nut-js';
 import WebSocket, { createWebSocketStream } from 'ws';
 import { circleCoordinates } from './utils/circleCoordinates';
-import { DRAW, MOUSE } from './utils/constants';
+import { DRAW, MOUSE, PRNT_SCRN } from './utils/constants';
 import { parser } from './utils/parser';
 
 export const startServer = (ws: WebSocket) => {
@@ -57,6 +58,10 @@ export const startServer = (ws: WebSocket) => {
         await mouse.releaseButton(Button.LEFT);
         duplex.write(`${command}_${option}_${option2}\n`);
         break;
+      case PRNT_SCRN:
+        const currentPos = await mouse.getPosition();
+        const screen = await makeSnapshot(currentPos);
+        duplex.write(`${command} ${screen}\n`);
       default:
         duplex.write('Bad_request: \n');
         break;

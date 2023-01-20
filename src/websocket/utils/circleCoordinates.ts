@@ -1,6 +1,6 @@
 import { mouse, Point, straightTo } from '@nut-tree/nut-js';
 
-type MousePosition = {
+export type MousePosition = {
   x: number;
   y: number;
 };
