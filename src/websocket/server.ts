@@ -9,7 +9,6 @@ export const startServer = (ws: WebSocket) => {
   const duplex = createWebSocketStream(ws, { encoding: 'utf8', decodeStrings: false });
 
   duplex.on('data', async (chunk: Buffer) => {
-    console.log(`Received: ${chunk.toString()}`);
     const { command, option, option2 } = parser(chunk.toString());
 
     switch (command) {
@@ -66,5 +65,10 @@ export const startServer = (ws: WebSocket) => {
         duplex.write('Bad_request: \n');
         break;
     }
+  });
+
+  ws.on('close', () => {
+    duplex.destroy();
+    process.exit();
   });
 };
